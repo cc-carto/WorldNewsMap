@@ -1,9 +1,9 @@
 const categoryColors = {
-  Politics: 'blue',
-  Environmental: 'green',
-  Health: 'red',
-  Finance: 'yellow',
-  Conflict: 'black'
+  Politics: '#0004ffff',
+  Environmental: '#0f962eff',
+  Health: '#e74c3c',
+  Finance: '#f1c40f',
+  Conflict: '#000000ff'
 };
 
 Papa.parse("Global Affairs.csv", {
@@ -36,3 +36,28 @@ Papa.parse("Global Affairs.csv", {
     });
   }
 });
+
+const legend = L.control({ position: 'bottomright' });
+
+legend.onAdd = function (map) {
+  const div = L.DomUtil.create('div', 'info legend');
+  const categories = {
+    'Conflict': '#000000ff',
+    'Politics': '#0004ffff',
+    'Finance': '#f1c40f',
+    'Environment': '#0f962eff',
+    'Health':'#e74c3c',
+  };
+
+  for (const [label, color] of Object.entries(categories)) {
+    div.innerHTML += `
+      <i style="background:${color}; width: 12px; height: 12px; display: inline-block; margin-right: 6px;"></i>
+      ${label}<br>
+    `;
+  }
+
+  return div;
+};
+
+legend.addTo(map);
+

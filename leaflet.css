@@ -662,3 +662,11 @@ svg.leaflet-image-layer.leaflet-interactive path {
 
 
 #map { height: 180px; }
+
+.info.legend {
+  background: white;
+  padding: 10px;
+  font: 14px/1.4 "Helvetica Neue", Arial, sans-serif;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+}
